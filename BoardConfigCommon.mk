@@ -156,7 +156,7 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Keep free inodes / GApps reserved headroom
 EXTRA_RESERVED_SIZE := true
-include vendor/alpha/config/BoardConfigReservedSize.mk
+include vendor/infinity/config/BoardConfigReservedSize.mk
 
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
