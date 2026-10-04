@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
 
 # Alert slider
 PRODUCT_PACKAGES += \
-    DeviceSettings \
     tri-state-key-calibrate
 
 # Audio
@@ -133,8 +132,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
 # Fastboot
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot-service.example_recovery \
-    fastbootd
+    android.hardware.fastboot-service.example_recovery
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -195,8 +193,6 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_oplus)
 
 # Kernel
-PRODUCT_ENABLE_UFFD_GC := true
-
 PRODUCT_COPY_FILES += \
     kernel/oneplus/sm8550/modules.systemdlkm_blocklist.msm.kalama:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
 
@@ -243,6 +239,21 @@ PRODUCT_PACKAGES += \
     vendor.oplus.hardware.commondcs-service \
     vendor.oplus.hardware.osense.client-service \
     vendor.oplus.hardware.performance-service
+
+# OPlus NDK interfaces
+PRODUCT_PACKAGES += \
+    vendor.oplus.hardware.appradioaidl-V1-ndk \
+    vendor.oplus.hardware.cammidasservice-V1-ndk \
+    vendor.oplus.hardware.camera_rfi-V1-ndk \
+    vendor.oplus.hardware.cameraextension-V1-ndk \
+    vendor.oplus.hardware.commondcs-V1-ndk \
+    vendor.oplus.hardware.commondcs-V1-ndk_platform \
+    vendor.oplus.hardware.communicationcenter-V2-ndk \
+    vendor.oplus.hardware.ims-V1-ndk \
+    vendor.oplus.hardware.sendextcamcmd-V1-ndk \
+    vendor.oplus.hardware.sendextcamcmd-V2-ndk \
+    vendor.oplus.hardware.subsys-V5-ndk \
+    vendor.oplus.hardware.subsys_radio-V8-ndk
 
 # Overlays
 $(call inherit-product, hardware/oplus/overlay/generic/generic.mk)
@@ -314,12 +325,17 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    device/oneplus/aston \
     hardware/oplus \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/pixelworks/interfaces \
-    hardware/qcom-caf/common/libqti-perfd-client
+    hardware/qcom-caf/common/libqti-perfd-client \
+    vendor/oneplus/aston \
+    vendor/oneplus/sm8550-common \
+    vendor/oplus/camera
 
 # Storage
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)

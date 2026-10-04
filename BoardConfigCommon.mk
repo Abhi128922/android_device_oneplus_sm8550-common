@@ -156,7 +156,7 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Keep free inodes / GApps reserved headroom
 EXTRA_RESERVED_SIZE := true
-include vendor/alpha/config/BoardConfigReservedSize.mk
+include vendor/custom/config/BoardConfigReservedSize.mk
 
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
@@ -204,7 +204,11 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOOT_SECURITY_PATCH := 2025-12-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
+# Build flags
+BUILD_BROKEN_DUP_RULES := true
+
 # SEPolicy
+include device/custom/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
 
