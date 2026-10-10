@@ -457,6 +457,8 @@ PRODUCT_PACKAGES += \
 
 # Dolby
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
+PRODUCT_SOONG_NAMESPACES += hardware/dolby
+PRODUCT_PACKAGES += DolbyManager
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8550-common/sm8550-common-vendor.mk)
