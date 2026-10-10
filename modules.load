@@ -6,6 +6,7 @@ bam_dma.ko
 bcl_soc.ko
 boot_stats.ko
 bt_fm_slim.ko
+btpower.ko
 camera.ko
 cdsp-loader.ko
 cdsprm.ko
