@@ -457,8 +457,9 @@ PRODUCT_PACKAGES += \
 
 # Dolby
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
-PRODUCT_SOONG_NAMESPACES += hardware/dolby
-PRODUCT_PACKAGES += DolbyManager
+PRODUCT_SOONG_NAMESPACES += packages/apps/LunarisDolby
+PRODUCT_COPY_FILES += \
+    packages/apps/LunarisDolby/configs/permissions/privapp-permissions-dolby.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-dolby.xml
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8550-common/sm8550-common-vendor.mk)
