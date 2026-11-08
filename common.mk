@@ -447,9 +447,6 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     LunarisDolby
 
-PRODUCT_COPY_FILES += \
-    packages/apps/LunarisDolby/LunarisDolby/privapp-permissions-dolby.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-dolby.xml
-
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
 
 # Inherit from the proprietary files makefile.
