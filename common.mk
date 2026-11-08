@@ -319,7 +319,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/pixelworks/interfaces \
-    hardware/qcom-caf/common/libqti-perfd-client
+    hardware/qcom-caf/common/libqti-perfd-client \
+    packages/apps/LunarisDolby
 
 # Storage
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
@@ -440,6 +441,15 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Dolby
+PRODUCT_SOONG_NAMESPACES += \
+    packages/apps/LunarisDolby
+
+PRODUCT_PACKAGES += \
+    LunarisDolby
+
+PRODUCT_COPY_FILES += \
+    packages/apps/LunarisDolby/LunarisDolby/privapp-permissions-dolby.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-dolby.xml
+
 $(call inherit-product, vendor/oneplus/dolby/config.mk)
 
 # Inherit from the proprietary files makefile.
